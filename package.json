@@ -5,6 +5,9 @@
   "repository": "git@github.com:luanrem/loginAPI.git",
   "author": "luanrem <luanrem@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+  },
   "dependencies": {
     "express": "^4.18.2"
   },
@@ -21,6 +24,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "prettier": "^2.8.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "*"
   }
 }
