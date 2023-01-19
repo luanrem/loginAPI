@@ -6,7 +6,7 @@
   "author": "luanrem <luanrem@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+    "dev": "tsx watch src/infra/http/server.ts"
   },
   "dependencies": {
     "express": "^4.18.2"
@@ -25,6 +25,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "prettier": "^2.8.1",
     "ts-node-dev": "^2.0.0",
+    "tsx": "^3.12.2",
     "typescript": "*"
   }
 }
