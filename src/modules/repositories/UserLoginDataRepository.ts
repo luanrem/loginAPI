@@ -25,6 +25,8 @@ class UserLoginDataRepository implements IUserLoginDataRepository {
     });
 
     this.userLoginData.push(user);
+
+    console.log(this.userLoginData);
   }
 }
 
