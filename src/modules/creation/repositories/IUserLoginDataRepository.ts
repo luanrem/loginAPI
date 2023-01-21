@@ -1,17 +1,7 @@
-interface ICreateUserLoginDataDTO {
-  login_name: string;
-  user_email: string;
-  password_hash: string;
-  password_salt: string;
-}
+import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
 
 interface IUserLoginDataRepository {
-  create({
-    login_name,
-    user_email,
-    password_hash,
-    password_salt,
-  }: ICreateUserLoginDataDTO): Promise<void>;
+  create(data: ICreateUserDTO): Promise<void>;
 }
 
-export { IUserLoginDataRepository, ICreateUserLoginDataDTO };
+export { IUserLoginDataRepository };
