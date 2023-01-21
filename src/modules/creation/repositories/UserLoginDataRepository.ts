@@ -9,7 +9,7 @@ import { IUserLoginDataRepository } from "./IUserLoginDataRepository";
 class UserLoginDataRepository implements IUserLoginDataRepository {
   private repository: Repository<User>;
 
-  private constructor() {
+  constructor() {
     this.repository = AppDataSource.getRepository(User);
   }
 

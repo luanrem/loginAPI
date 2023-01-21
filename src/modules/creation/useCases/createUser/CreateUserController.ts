@@ -6,10 +6,10 @@ class CreateUserController {
   constructor(private createUserUseCase: CreateUserUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const { name, email, password } = request.body;
+    const { username, email, password } = request.body;
 
     this.createUserUseCase.execute({
-      name,
+      username,
       email,
       password,
     });

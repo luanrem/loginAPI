@@ -4,15 +4,15 @@ import { IUserLoginDataRepository } from "../../repositories/IUserLoginDataRepos
 class CreateUserUseCase {
   constructor(private userLoginDataRepository: IUserLoginDataRepository) {}
 
-  async execute({ name, email, password }): Promise<void> {
-    const passwordHash = await hash(password, 8);
-    const passwordSalt = await hash(email, 8);
+  async execute({ username, email, password }): Promise<void> {
+    const password_hash = await hash(password, 8);
+    const password_salt = await hash(email, 8);
 
     this.userLoginDataRepository.create({
-      loginName: name,
-      emailAddress: email,
-      passwordHash,
-      passwordSalt,
+      login_name: username,
+      user_email: email,
+      password_hash,
+      password_salt,
     });
   }
 }
