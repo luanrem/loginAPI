@@ -5,7 +5,7 @@ interface ICreateUserLoginDataDTO {
   passwordSalt: string;
 }
 
-interface IUserLoginDataRepository {
+interface IUserLoginDataRepositoryInMemory {
   create({
     loginName,
     emailAddress,
@@ -14,4 +14,4 @@ interface IUserLoginDataRepository {
   }: ICreateUserLoginDataDTO): void;
 }
 
-export { IUserLoginDataRepository, ICreateUserLoginDataDTO };
+export { IUserLoginDataRepositoryInMemory, ICreateUserLoginDataDTO };

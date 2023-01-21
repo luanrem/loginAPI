@@ -1,8 +1,13 @@
 import { hash } from "bcrypt";
+import { inject, injectable } from "tsyringe";
 import { IUserLoginDataRepository } from "../../repositories/IUserLoginDataRepository";
 
+@injectable()
 class CreateUserUseCase {
-  constructor(private userLoginDataRepository: IUserLoginDataRepository) {}
+  constructor(
+    @inject("UserLoginDataRepository")
+    private userLoginDataRepository: IUserLoginDataRepository
+  ) {}
 
   async execute({ username, email, password }): Promise<void> {
     const password_hash = await hash(password, 8);

@@ -2,11 +2,13 @@ import { v4 as uuidV4 } from "uuid";
 
 import { User } from "../../entities/User";
 import {
-  IUserLoginDataRepository,
+  IUserLoginDataRepositoryInMemory,
   ICreateUserLoginDataDTO,
 } from "./IUserLoginDataRepositoryInMemory";
 
-class UserLoginDataRepository implements IUserLoginDataRepository {
+class UserLoginDataRepositoryInMemory
+  implements IUserLoginDataRepositoryInMemory
+{
   private userLoginData: User[] = [];
 
   async create({
@@ -30,4 +32,4 @@ class UserLoginDataRepository implements IUserLoginDataRepository {
   }
 }
 
-export { UserLoginDataRepository };
+export { UserLoginDataRepositoryInMemory };

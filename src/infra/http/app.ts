@@ -9,6 +9,8 @@ AppDataSource.initialize()
   .then(() => console.log("Database connected successfully"))
   .catch((err) => console.log("Error connecting database", err));
 
+import "../../shared/container";
+
 app.use(express.json());
 
 app.use(router);
