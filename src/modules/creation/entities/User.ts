@@ -10,7 +10,7 @@ class User {
   login_name: string;
 
   @Column("varchar")
-  userEmail: string;
+  user_email: string;
 
   @Column("varchar")
   password_hash: string;

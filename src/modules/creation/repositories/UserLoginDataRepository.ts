@@ -1,4 +1,6 @@
+import { Repository } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
+import { AppDataSource } from "../../../infra/typeorm";
 
 import { User } from "../entities/User";
 import {
@@ -7,26 +9,27 @@ import {
 } from "./IUserLoginDataRepository";
 
 class UserLoginDataRepository implements IUserLoginDataRepository {
-  private userLoginData: User[] = [];
+  private repository: Repository<User>;
+
+  private constructor() {
+    this.repository = AppDataSource.getRepository(User);
+  }
 
   async create({
-    loginName,
-    emailAddress,
-    passwordHash,
-    passwordSalt,
+    login_name,
+    user_email,
+    password_hash,
+    password_salt,
   }: ICreateUserLoginDataDTO): Promise<void> {
-    const user = new User();
-
-    Object.assign(user, {
-      loginName,
-      emailAddress,
-      passwordHash,
-      passwordSalt,
+    const user = this.repository.create({
+      user_id: uuidV4(),
+      login_name,
+      user_email,
+      password_hash,
+      password_salt,
     });
 
-    this.userLoginData.push(user);
-
-    console.log(this.userLoginData);
+    await this.repository.save(user);
   }
 }
 

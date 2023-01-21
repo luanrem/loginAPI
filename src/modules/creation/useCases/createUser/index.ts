@@ -1,4 +1,4 @@
-import { UserLoginDataRepository } from "../../repositories/UserLoginDataRepository";
+import { UserLoginDataRepository } from "../../repositories/in-memory/UserLoginDataRepositoryInMemory";
 import { CreateUserController } from "./CreateUserController";
 import { CreateUserUseCase } from "./CreateUserUseCase";
 
