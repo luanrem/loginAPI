@@ -1,6 +1,6 @@
 import { v4 as uuidV4 } from "uuid";
 
-import { User } from "../creation/model/User";
+import { User } from "../entities/User";
 import {
   IUserLoginDataRepository,
   ICreateUserLoginDataDTO,

@@ -1,5 +1,5 @@
 import { hash } from "bcrypt";
-import { IUserLoginDataRepository } from "../../../repositories/IUserLoginDataRepository";
+import { IUserLoginDataRepository } from "../../repositories/IUserLoginDataRepository";
 
 class CreateUserUseCase {
   constructor(private userLoginDataRepository: IUserLoginDataRepository) {}

@@ -9,7 +9,7 @@ export const AppDataSource = new DataSource({
   database: "userapi",
   synchronize: true,
   logging: true,
-  entities: [],
+  entities: ["./src/modules/**/entities/*.ts"],
   subscribers: [],
   migrations: ["./src/infra/typeorm/migrations/*.ts"],
 });
