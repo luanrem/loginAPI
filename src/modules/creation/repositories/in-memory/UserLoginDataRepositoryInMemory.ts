@@ -1,34 +1,35 @@
 import { v4 as uuidV4 } from "uuid";
+import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
 
 import { User } from "../../entities/User";
-import {
-  IUserLoginDataRepositoryInMemory,
-  ICreateUserLoginDataDTO,
-} from "./IUserLoginDataRepositoryInMemory";
+import { IUserLoginDataRepository } from "../IUserLoginDataRepository";
 
-class UserLoginDataRepositoryInMemory
-  implements IUserLoginDataRepositoryInMemory
-{
+class UserLoginDataRepositoryInMemory implements IUserLoginDataRepository {
   private userLoginData: User[] = [];
 
   async create({
-    loginName,
-    emailAddress,
-    passwordHash,
-    passwordSalt,
-  }: ICreateUserLoginDataDTO): Promise<void> {
+    login_name,
+    user_email,
+    password_hash,
+    password_salt,
+  }: ICreateUserDTO): Promise<void> {
     const user = new User();
 
     Object.assign(user, {
-      loginName,
-      emailAddress,
-      passwordHash,
-      passwordSalt,
+      user_id: uuidV4(),
+      login_name,
+      user_email,
+      password_hash,
+      password_salt,
     });
 
     this.userLoginData.push(user);
+  }
 
-    console.log(this.userLoginData);
+  async findByName(name: string): Promise<User> {
+    const user = this.userLoginData.find((user) => user.login_name === name);
+
+    return user;
   }
 }
 

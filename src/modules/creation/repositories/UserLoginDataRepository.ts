@@ -29,6 +29,10 @@ class UserLoginDataRepository implements IUserLoginDataRepository {
 
     await this.repository.save(user);
   }
+
+  findByName(name: string): Promise<User> {
+    throw new Error("Method not implemented."); //TODO - Not implemented on production yet
+  }
 }
 
 export { UserLoginDataRepository };
