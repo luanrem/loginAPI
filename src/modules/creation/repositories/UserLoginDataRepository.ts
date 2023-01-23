@@ -33,7 +33,14 @@ class UserLoginDataRepository implements IUserLoginDataRepository {
   async findByName(name: string): Promise<User> {
     const user = await this.repository.findOneBy({
       login_name: name,
-    })
+    });
+    return user;
+  }
+
+  async findByEmail(email: string): Promise<User> {
+    const user = await this.repository.findOneBy({
+      user_email: email,
+    });
     return user;
   }
 }

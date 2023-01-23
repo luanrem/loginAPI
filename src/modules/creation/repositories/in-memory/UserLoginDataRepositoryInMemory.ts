@@ -31,6 +31,12 @@ class UserLoginDataRepositoryInMemory implements IUserLoginDataRepository {
 
     return user;
   }
+
+  async findByEmail(email: string): Promise<User> {
+    const user = this.userLoginData.find((user) => user.user_email === email);
+
+    return user;
+  }
 }
 
 export { UserLoginDataRepositoryInMemory };
