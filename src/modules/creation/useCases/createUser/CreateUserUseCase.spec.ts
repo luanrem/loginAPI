@@ -1,3 +1,4 @@
+import { AppError } from "./../../../../shared/errors/AppError";
 import { UserLoginDataRepositoryInMemory } from "../../repositories/in-memory/UserLoginDataRepositoryInMemory";
 import { CreateUserUseCase } from "./CreateUserUseCase";
 
@@ -53,7 +54,7 @@ describe("Create User", () => {
         email: user2.email,
         password: user2.password,
       })
-    ).rejects.toThrowError();
+    ).rejects.toEqual(new AppError("User or Email Already Exists!"));
   });
 
   it("Should not be possible to create a new user with the same username", async () => {
@@ -81,6 +82,6 @@ describe("Create User", () => {
         email: user2.email,
         password: user2.password,
       })
-    ).rejects.toThrowError();
+    ).rejects.toEqual(new AppError("User or Email Already Exists!"));
   });
 });

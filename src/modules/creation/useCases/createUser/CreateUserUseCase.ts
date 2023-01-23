@@ -16,14 +16,14 @@ class CreateUserUseCase {
     );
 
     if (userNameAlreadyExists) {
-      throw new AppError("User Already Exists!");
+      throw new AppError("User or Email Already Exists!");
     }
 
     const userEmailAlreadyExists =
       await this.userLoginDataRepository.findByEmail(email);
 
     if (userEmailAlreadyExists) {
-      throw new AppError("Email Already Exists!");
+      throw new AppError("User or Email Already Exists!");
     }
 
     const password_salt = await genSalt(8);
