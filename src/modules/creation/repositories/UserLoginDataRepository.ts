@@ -43,6 +43,11 @@ class UserLoginDataRepository implements IUserLoginDataRepository {
     });
     return user;
   }
+
+  async findById(id: string): Promise<User> {
+    const user = await this.repository.findOneBy({ user_id: id });
+    return user;
+  }
 }
 
 export { UserLoginDataRepository };
