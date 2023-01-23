@@ -1,4 +1,4 @@
-import { hash } from "bcrypt";
+import { compare, genSalt, hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
 import { IUserLoginDataRepository } from "../../repositories/IUserLoginDataRepository";
 
@@ -10,8 +10,9 @@ class CreateUserUseCase {
   ) {}
 
   async execute({ username, email, password }): Promise<void> {
-    const password_hash = await hash(password, 8);
-    const password_salt = await hash(email, 8);
+    const password_salt = await genSalt(8);
+    const password_salted = password_salt + password;
+    const password_hash = await hash(password_salted, 10);
 
     this.userLoginDataRepository.create({
       login_name: username,
