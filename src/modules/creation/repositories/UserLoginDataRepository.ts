@@ -30,8 +30,11 @@ class UserLoginDataRepository implements IUserLoginDataRepository {
     await this.repository.save(user);
   }
 
-  findByName(name: string): Promise<User> {
-    throw new Error("Method not implemented."); //TODO - Not implemented on production yet
+  async findByName(name: string): Promise<User> {
+    const user = await this.repository.findOneBy({
+      login_name: name,
+    })
+    return user;
   }
 }
 
