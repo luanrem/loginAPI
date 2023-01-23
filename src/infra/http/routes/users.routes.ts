@@ -7,8 +7,8 @@ const usersRoute = Router();
 const createUserController = new CreateUserController();
 const listUserController = new ListUserController();
 
-usersRoute.post("/users", createUserController.handle);
+usersRoute.post("/", createUserController.handle);
 
-usersRoute.get("/user/:id", listUserController.handle);
+usersRoute.get("/:id", listUserController.handle);
 
 export { usersRoute };
