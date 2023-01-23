@@ -10,6 +10,14 @@ class CreateUserUseCase {
   ) {}
 
   async execute({ username, email, password }): Promise<void> {
+    const userNameAlreadyExists = await this.userLoginDataRepository.findByName(
+      username
+    );
+
+    if (userNameAlreadyExists) {
+      throw new Error("User Already Exists!");
+    }
+
     const password_salt = await genSalt(8);
     const password_salted = password_salt + password;
     const password_hash = await hash(password_salted, 10);
