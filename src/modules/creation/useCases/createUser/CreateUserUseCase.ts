@@ -1,5 +1,6 @@
-import { compare, genSalt, hash } from "bcrypt";
+import { genSalt, hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
+import { AppError } from "../../../../shared/errors/AppError";
 import { IUserLoginDataRepository } from "../../repositories/IUserLoginDataRepository";
 
 @injectable()
@@ -15,14 +16,14 @@ class CreateUserUseCase {
     );
 
     if (userNameAlreadyExists) {
-      throw new Error("User Already Exists!");
+      throw new AppError("User Already Exists!");
     }
 
     const userEmailAlreadyExists =
       await this.userLoginDataRepository.findByEmail(email);
 
     if (userEmailAlreadyExists) {
-      throw new Error("Email Already Exists!");
+      throw new AppError("Email Already Exists!");
     }
 
     const password_salt = await genSalt(8);

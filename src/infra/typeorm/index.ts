@@ -8,7 +8,7 @@ export const AppDataSource = new DataSource({
   password: "docker",
   database: "userapi",
   synchronize: true,
-  logging: true,
+  logging: false,
   entities: ["./src/modules/**/entities/*.ts"],
   subscribers: [],
   migrations: ["./src/infra/typeorm/migrations/*.ts"],
