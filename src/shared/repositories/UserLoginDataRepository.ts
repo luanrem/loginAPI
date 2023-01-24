@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
-import { AppDataSource } from "../../../infra/typeorm";
-import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
+import { AppDataSource } from "../../infra/typeorm";
+import { ICreateUserDTO } from "../../modules/creation/dtos/ICreateUserDTO";
 
 import { User } from "../entities/User";
 import { IUserLoginDataRepository } from "./IUserLoginDataRepository";

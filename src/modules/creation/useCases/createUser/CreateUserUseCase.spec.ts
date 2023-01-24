@@ -1,5 +1,5 @@
+import { UserLoginDataRepositoryInMemory } from "../../../../shared/repositories/in-memory/UserLoginDataRepositoryInMemory";
 import { AppError } from "./../../../../shared/errors/AppError";
-import { UserLoginDataRepositoryInMemory } from "../../repositories/in-memory/UserLoginDataRepositoryInMemory";
 import { CreateUserUseCase } from "./CreateUserUseCase";
 
 let createUserUseCase: CreateUserUseCase;

@@ -1,5 +1,5 @@
 import { v4 as uuidV4 } from "uuid";
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
+import { ICreateUserDTO } from "../../../modules/creation/dtos/ICreateUserDTO";
 
 import { User } from "../../entities/User";
 import { IUserLoginDataRepository } from "../IUserLoginDataRepository";

@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
-import { UserLoginDataRepository } from "../modules/creation/repositories/UserLoginDataRepository";
 import { AppError } from "../shared/errors/AppError";
+import { UserLoginDataRepository } from "../shared/repositories/UserLoginDataRepository";
 
 interface IPayload {
   sub: string;

@@ -1,7 +1,7 @@
 import { genSalt, hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../shared/errors/AppError";
-import { IUserLoginDataRepository } from "../../repositories/IUserLoginDataRepository";
+import { IUserLoginDataRepository } from "../../../../shared/repositories/IUserLoginDataRepository";
 
 @injectable()
 class CreateUserUseCase {

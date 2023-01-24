@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import { IUserLoginDataRepository } from "../../repositories/IUserLoginDataRepository";
+import { IUserLoginDataRepository } from "../../../../shared/repositories/IUserLoginDataRepository";
 
 interface IListUserResponse {
   user_id?: string;
