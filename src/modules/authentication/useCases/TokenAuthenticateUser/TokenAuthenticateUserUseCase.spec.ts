@@ -1,3 +1,4 @@
+import { AppError } from "./../../../../shared/errors/AppError";
 import { UserLoginDataRepositoryInMemory } from "../../../../shared/repositories/in-memory/UserLoginDataRepositoryInMemory";
 import { ICreateUserDTO } from "../../../creation/dtos/ICreateUserDTO";
 import { CreateUserUseCase } from "../../../creation/useCases/createUser/CreateUserUseCase";
@@ -31,5 +32,14 @@ describe("Authenticate User by Token", () => {
     });
 
     expect(result).toHaveProperty("token");
+  });
+
+  it("Should not be able to authenticate a nonexistent user", async () => {
+    expect(
+      tokenAuthenticateUserUseCase.execute({
+        email: "valik@sona.td",
+        password: "26590",
+      })
+    ).rejects.toEqual(new AppError("Email or password incorrect"));
   });
 });
